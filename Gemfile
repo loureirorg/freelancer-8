@@ -59,7 +59,7 @@ group :development do
   gem 'pry-rails'
 end
 
-group :production
+group :production do
   gem 'therubyracer'
   gem 'rack-cache', require: 'rack/cache'
   gem 'mysql2'
