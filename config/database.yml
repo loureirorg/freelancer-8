@@ -22,6 +22,7 @@ test:
 
 production:
   adapter: mysql2
-  user: geekluv
+  encoding: utf8
+  username: geekluv
   database: geekluv
   password: 'jnfeur8y47jfdn4yrhfa'
