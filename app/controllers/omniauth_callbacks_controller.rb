@@ -11,13 +11,13 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
         user.update_attributes({facebook_uid: auth.uid})
       else
         # not found, create a new one
-        user = User.create do |user|
+        user = User.create! do |user|
           user.facebook_uid = auth.uid
           user.name = auth.info.name
           user.email = auth.info.email
           user.skip_confirmation!
         end
-        user.welcome_message if user.persisted?
+        # user.welcome_message if user.persisted?
       end
     end
 
