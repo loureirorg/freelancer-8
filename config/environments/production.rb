@@ -82,7 +82,7 @@ Rails.application.configure do
   ActionMailer::Base.perform_deliveries = true
 
   config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.default_url_options = {host: "localhost", port: 3000}
+  config.action_mailer.default_url_options = {host: "http://geekluv.float.ag"}
   ActionMailer::Base.smtp_settings = {
     address: "smtp.mandrillapp.com",
     port: 587,
