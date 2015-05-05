@@ -48,6 +48,7 @@ gem 'omniauth-facebook'
 gem 'bootstrap-sass'
 gem 'simple_form'
 gem 'rack-cache', require: 'rack/cache', group: :production
+gem 'therubyracer'
 
 # dns (accel fb auth)
 gem 'eventmachine'
