@@ -1,0 +1,21 @@
+<div class="container">
+  
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Photo</th>
+      <th>Name</th>
+      <th>Networks</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @contacts.each do |contact| %>
+    <tr>
+      <td><%= image_tag contact.facebook_photo_link %></td>
+      <td><%= contact.facebook_name %></td>
+      <td>Facebook</td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>

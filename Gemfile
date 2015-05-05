@@ -47,8 +47,7 @@ gem 'devise'
 gem 'omniauth-facebook'
 gem 'bootstrap-sass'
 gem 'simple_form'
-gem 'rack-cache', require: 'rack/cache', group: :production
-gem 'therubyracer'
+gem 'koala'
 
 # dns (accel fb auth)
 gem 'eventmachine'
@@ -58,4 +57,10 @@ group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'pry-rails'
+end
+
+group :production
+  gem 'therubyracer'
+  gem 'rack-cache', require: 'rack/cache'
+  gem 'mysql2'
 end

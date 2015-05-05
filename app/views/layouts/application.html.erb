@@ -26,6 +26,7 @@
         <a href="/" data-target="#" data-toggle="dropdown">Hi, <%= current_user.name.presence || current_user.email %>!<span class="caret"></span></a>
         <ul class="dropdown-menu">
           <li><%= link_to "Edit Account", edit_user_registration_path %></li>
+          <li><%= link_to "My contacts", contacts_path %></li>
           <li><%= link_to "Logout", destroy_user_session_path, method: :delete, rel: "nofollow" %></li>
         </ul>
       </li>
