@@ -18,6 +18,12 @@
     <% else %>
     Facebook:  Disconnected (<%= link_to "connect", user_omniauth_authorize_path(:facebook) %>)
     <% end %>
+    <br>
+    <% if current_user.google_uid.present? %>
+    Google:  Connected (<%= link_to "disconnect", disconnect_google_path %>)
+    <% else %>
+    Google:  Disconnected (<%= link_to "connect", "/contacts/gmail" %>)
+    <% end %>
   </div>
 
   <div class="form-actions">

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150505193552) do
+ActiveRecord::Schema.define(version: 20150506172521) do
 
   create_table "contacts", force: :cascade do |t|
     t.integer  "user_id"
@@ -20,8 +20,14 @@ ActiveRecord::Schema.define(version: 20150505193552) do
     t.string   "facebook_id"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
+    t.text     "google_name"
+    t.text     "google_photo_link"
+    t.text     "google_id"
+    t.string   "name"
+    t.string   "photo_link"
   end
 
+  add_index "contacts", ["name"], name: "index_contacts_on_name"
   add_index "contacts", ["user_id", "facebook_name"], name: "index_contacts_on_user_id_and_facebook_name"
   add_index "contacts", ["user_id"], name: "index_contacts_on_user_id"
 
@@ -53,6 +59,9 @@ ActiveRecord::Schema.define(version: 20150505193552) do
     t.datetime "updated_at"
     t.string   "name"
     t.string   "facebook_uid"
+    t.string   "google_uid"
+    t.text     "google_user_data"
+    t.text     "google_contacts_data"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true

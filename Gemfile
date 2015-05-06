@@ -45,9 +45,11 @@ end
 
 gem 'devise'
 gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'
 gem 'bootstrap-sass'
 gem 'simple_form'
-gem 'koala'
+gem 'koala' # extract data from facebook 
+gem 'omnicontacts' # extract data from google
 
 # dns (accel fb auth)
 gem 'eventmachine'

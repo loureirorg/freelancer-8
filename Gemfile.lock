@@ -120,11 +120,17 @@ GEM
       rack (~> 1.0)
     omniauth-facebook (1.4.1)
       omniauth-oauth2 (~> 1.1.0)
+    omniauth-google-oauth2 (0.2.6)
+      omniauth (> 1.0)
+      omniauth-oauth2 (~> 1.1)
     omniauth-oauth2 (1.1.2)
       faraday (>= 0.8, < 0.10)
       multi_json (~> 1.3)
       oauth2 (~> 0.9.3)
       omniauth (~> 1.2)
+    omnicontacts (0.3.6)
+      json
+      rack
     orm_adapter (0.5.0)
     pry (0.10.1)
       coderay (~> 1.1.0)
@@ -226,6 +232,8 @@ DEPENDENCIES
   koala
   mysql2
   omniauth-facebook
+  omniauth-google-oauth2
+  omnicontacts
   pry-rails
   rack-cache
   rails (= 4.2.1)

@@ -11,9 +11,20 @@
   <tbody>
     <% @contacts.each do |contact| %>
     <tr>
-      <td><%= image_tag contact.facebook_photo_link %></td>
-      <td><%= contact.facebook_name %></td>
-      <td>Facebook</td>
+      <td>
+        <% if contact.photo_link.present? %>
+        <%= image_tag contact.photo_link %>
+        <% end %>
+      </td>
+      <td><%= contact.name %></td>
+      <td>
+        <% if contact.facebook_name.present? %>
+        <span class="label label-primary">Facebook</span>
+        <% end %>
+        <% if contact.google_name.present? %>
+        <span class="label label-danger">GMail</span>
+        <% end %>
+      </td>
     </tr>
     <% end %>
   </tbody>

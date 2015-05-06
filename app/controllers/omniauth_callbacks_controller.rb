@@ -28,7 +28,10 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
       @graph = Koala::Facebook::API.new(auth[:credentials][:token], ENV['FACEBOOK_SECRET'])
       contacts = @graph.get_connections("me", "invitable_friends")
       contacts.each do |contact|
-        db_contact = user.contacts.find_by(facebook_name: contact["name"]) || Contact.new(user: user, facebook_name: contact["name"])
+        db_contact = user.contacts.find_by(name: contact["name"]) || Contact.new(user: user)
+        db_contact.name = contact["name"]
+        db_contact.photo_link = contact["picture"]["data"]["url"]
+        db_contact.facebook_name = contact["name"]
         db_contact.facebook_id = contact["id"]
         db_contact.facebook_photo_link = contact["picture"]["data"]["url"]
         db_contact.save
@@ -43,4 +46,6 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
       redirect_to new_user_registration_path
     end
   end
+
+
 end
