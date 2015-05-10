@@ -30,7 +30,7 @@
     <strong>Yahoo:</strong> <%= current_user.contacts.where.not(yahoo_name: nil).count %> contacts. <%= link_to "Update", "/contacts/yahoo" %>
     </p>
     <p>
-    <strong>Twitter:</strong> <%= current_user.contacts.where.not(twitter_name: nil).count %> contacts. <%= link_to "Update", "/contacts/twitter" %>
+    <strong>Twitter:</strong> <%= current_user.contacts.where.not(twitter_name: nil).count %> contacts. <%= link_to "Update", user_omniauth_authorize_path(:twitter) %>
     </p>
   </div>
 

@@ -50,7 +50,8 @@ gem 'bootstrap-sass'
 gem 'simple_form'
 gem 'koala' # extract data from facebook 
 gem 'omnicontacts' # extract data from google
-gem 'puma'
+gem 'omniauth-twitter'
+gem 'twitter'
 
 # dns (accel fb auth)
 gem 'eventmachine'

@@ -48,4 +48,33 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
   end
 
 
+  def twitter
+    auth = request.env["omniauth.auth"]
+
+    client = Twitter::REST::Client.new do |config|
+      config.consumer_key        = ENV["TWITTER_CLIENT_ID"] 
+      config.consumer_secret     = ENV["TWITTER_CLIENT_SECRET"]
+      config.access_token        = ENV["TWITTER_TOKEN_ID"]
+      config.access_token_secret = ENV["TWITTER_TOKEN_SECRET"]
+    end
+
+    # save user data
+    current_user.update_attributes(twitter_uid: auth.uid, twitter_user_data: auth.to_json)
+
+    # import contacts
+    client.friends.each do |contact|
+      db_contact = current_user.contacts.find_by(name: contact.name.strip) || Contact.new(user: current_user)
+      db_contact.name ||= contact.name.strip
+      db_contact.photo_link ||= contact.profile_image_url.to_s
+      db_contact.twitter_name = contact.name.strip
+      db_contact.twitter_id = contact.id
+      db_contact.twitter_photo_link = contact.profile_image_url.to_s
+      db_contact.twitter_profile_link = contact.url.to_s
+      db_contact.save
+    end
+
+    # redirects to "user edit"
+    redirect_to edit_user_registration_path
+  end
+
 end

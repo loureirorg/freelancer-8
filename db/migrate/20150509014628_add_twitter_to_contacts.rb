@@ -6,5 +6,6 @@ class AddTwitterToContacts < ActiveRecord::Migration
     add_column :contacts, :twitter_name, :string
     add_column :contacts, :twitter_id, :string
     add_column :contacts, :twitter_photo_link, :string
+    add_column :contacts, :twitter_profile_link, :string
   end
 end

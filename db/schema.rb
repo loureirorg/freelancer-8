@@ -18,8 +18,8 @@ ActiveRecord::Schema.define(version: 20150509014628) do
     t.string   "facebook_name"
     t.string   "facebook_photo_link"
     t.string   "facebook_id"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
     t.text     "google_name"
     t.text     "google_photo_link"
     t.text     "google_id"
@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 20150509014628) do
     t.string   "twitter_name"
     t.string   "twitter_id"
     t.string   "twitter_photo_link"
+    t.string   "twitter_profile_link"
   end
 
   add_index "contacts", ["name"], name: "index_contacts_on_name"

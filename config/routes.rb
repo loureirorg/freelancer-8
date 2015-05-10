@@ -7,8 +7,5 @@ Rails.application.routes.draw do
   resources :posts
   get 'my-contacts', to: 'contacts#index', as: :contacts
 
-  devise_for :users,
-    controllers: {
-      omniauth_callbacks: "omniauth_callbacks"
-    }
+  devise_for :users, controllers: { omniauth_callbacks: "omniauth_callbacks" }
 end
