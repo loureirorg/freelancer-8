@@ -5,6 +5,7 @@
     <tr>
       <th>Photo</th>
       <th>Name</th>
+      <th>Email</th>
       <th>Networks</th>
     </tr>
   </thead>
@@ -13,16 +14,28 @@
     <tr>
       <td>
         <% if contact.photo_link.present? %>
-        <%= image_tag contact.photo_link %>
+        <%= image_tag contact.photo_link, height: 50, width: 50 %>
+        <% else %>
+        <%= image_tag "no-profile-image.jpg", height: 50, width: 50 %>
         <% end %>
       </td>
       <td><%= contact.name %></td>
+      <td><%= contact.email %></td>
       <td>
         <% if contact.facebook_name.present? %>
         <span class="label label-primary">Facebook</span>
         <% end %>
         <% if contact.google_name.present? %>
         <span class="label label-danger">GMail</span>
+        <% end %>
+        <% if contact.linkedin_name.present? %>
+        <span class="label label-info">Linkedin</span>
+        <% end %>
+        <% if contact.hotmail_name.present? %>
+        <span class="label label-info">Hotmail</span>
+        <% end %>
+        <% if contact.yahoo_name.present? %>
+        <span class="label label-info" style="background-color: #7B0099">Yahoo</span>
         <% end %>
       </td>
     </tr>

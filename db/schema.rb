@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150506172521) do
+ActiveRecord::Schema.define(version: 20150509014628) do
 
   create_table "contacts", force: :cascade do |t|
     t.integer  "user_id"
@@ -25,6 +25,19 @@ ActiveRecord::Schema.define(version: 20150506172521) do
     t.text     "google_id"
     t.string   "name"
     t.string   "photo_link"
+    t.string   "linkedin_name"
+    t.string   "linkedin_id"
+    t.string   "linkedin_photo_link"
+    t.string   "email"
+    t.string   "hotmail_name"
+    t.string   "hotmail_id"
+    t.string   "hotmail_photo_link"
+    t.string   "yahoo_name"
+    t.string   "yahoo_id"
+    t.string   "yahoo_photo_link"
+    t.string   "twitter_name"
+    t.string   "twitter_id"
+    t.string   "twitter_photo_link"
   end
 
   add_index "contacts", ["name"], name: "index_contacts_on_name"
@@ -62,6 +75,18 @@ ActiveRecord::Schema.define(version: 20150506172521) do
     t.string   "google_uid"
     t.text     "google_user_data"
     t.text     "google_contacts_data"
+    t.string   "linkedin_uid"
+    t.text     "linkedin_user_data"
+    t.text     "linkedin_contacts_data"
+    t.string   "hotmail_uid"
+    t.text     "hotmail_user_data"
+    t.text     "hotmail_contacts_data"
+    t.string   "yahoo_uid"
+    t.text     "yahoo_user_data"
+    t.text     "yahoo_contacts_data"
+    t.string   "twitter_uid"
+    t.text     "twitter_user_data"
+    t.text     "twitter_contacts_data"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true

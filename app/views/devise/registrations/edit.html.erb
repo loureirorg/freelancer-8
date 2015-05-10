@@ -13,17 +13,25 @@
     <%= f.input :password, autocomplete: "off", hint: "leave it blank if you don't want to change it", required: false %>
     <%= f.input :password_confirmation, required: false %>
     <%= f.input :current_password, hint: "we need your current password to confirm your changes", required: true %>
-    <% if current_user.facebook_uid.present? %>
-    Facebook:  Connected (<%= link_to "disconnect", disconnect_facebook_path %>)
-    <% else %>
-    Facebook:  Disconnected (<%= link_to "connect", user_omniauth_authorize_path(:facebook) %>)
-    <% end %>
-    <br>
-    <% if current_user.google_uid.present? %>
-    Google:  Connected (<%= link_to "disconnect", disconnect_google_path %>)
-    <% else %>
-    Google:  Disconnected (<%= link_to "connect", "/contacts/gmail" %>)
-    <% end %>
+
+    <p>
+    <strong>Facebook:</strong> <%= current_user.contacts.where.not(facebook_name: nil).count %> contacts. <%= link_to "Update", user_omniauth_authorize_path(:facebook) %>
+    </p>
+    <p>
+    <strong>Google:</strong> <%= current_user.contacts.where.not(google_name: nil).count %> contacts. <%= link_to "Update", "/contacts/gmail" %>
+    </p>
+    <p>
+    <strong>Linkedin:</strong> <%= current_user.contacts.where.not(linkedin_name: nil).count %> contacts. <%= link_to "Update", "/contacts/linkedin" %>
+    </p>
+    <p>
+    <strong>Hotmail:</strong> <%= current_user.contacts.where.not(hotmail_name: nil).count %> contacts. <%= link_to "Update", "/contacts/hotmail" %>
+    </p>
+    <p>
+    <strong>Yahoo:</strong> <%= current_user.contacts.where.not(yahoo_name: nil).count %> contacts. <%= link_to "Update", "/contacts/yahoo" %>
+    </p>
+    <p>
+    <strong>Twitter:</strong> <%= current_user.contacts.where.not(twitter_name: nil).count %> contacts. <%= link_to "Update", "/contacts/twitter" %>
+    </p>
   </div>
 
   <div class="form-actions">
